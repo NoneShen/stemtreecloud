@@ -11,6 +11,5 @@ function connectDb(){
         die('can not connect db');
     }
     mysqli_select_db($conn,'');
-    mysqli_query($conn,"set names 'UTF8'");
     return $conn;
 }
