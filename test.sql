@@ -329,42 +329,6 @@ CONSTRAINT `FK_179` FOREIGN KEY `fkIdx_179` (`Enrollment_plans_id`) REFERENCES `
 
 
 
--- ************************************** `Centers_clone`
-
-CREATE TABLE `Centers_clone`
-(
- `Center_id`                  int unsigned NOT NULL AUTO_INCREMENT ,
- `Franchisee_id`              int unsigned NOT NULL ,
- `Center_name`                varchar(50) NOT NULL ,
- `Entity_Name`                varchar(50) NOT NULL ,
- `Center_picture`             blob NOT NULL ,
- `Open_date`                  date NOT NULL ,
- `Email_address`              varchar(150) NOT NULL ,
- `Center_phone_number`        varchar(20) NOT NULL ,
- `Mobile`                     varchar(20) NOT NULL ,
- `Main_contact_mobile_number` varchar(20) NOT NULL ,
- `Address_street`             varchar(100) NOT NULL ,
- `Address_city`               varchar(20) NOT NULL ,
- `Address_state`              varchar(20) NOT NULL ,
- `Address_zip_code`           varchar(20) NOT NULL ,
- `Address_country`            varchar(20) NOT NULL ,
- `Country_locate`             varchar(20) NOT NULL ,
- `Language`                   varchar(20) NOT NULL ,
- `Data_pattern`               varchar(12) NOT NULL ,
- `Time_format`                varchar(12) NOT NULL ,
- `Tima_zone`                  varchar(30) NOT NULL ,
- `Created_by`                 varchar(50) NOT NULL ,
- `Created_date`               date NOT NULL ,
- `Modified_by`                varchar(50) NOT NULL ,
- `Modified_date`              date NOT NULL ,
-
-PRIMARY KEY (`Center_id`),
-KEY `fkIdx_113` (`Franchisee_id`),
-CONSTRAINT `FK_113` FOREIGN KEY `fkIdx_113` (`Franchisee_id`) REFERENCES `Franchisee Information` (`Franchisee_id`)
-);
-
-
-
 
 
 
