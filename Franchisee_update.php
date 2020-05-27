@@ -3,7 +3,7 @@ require_once 'functions.php';
 if(!empty($_GET['Franchisee_id'])){
     $conn=connectDb();
     $Franchisee_id=intval($_GET['Franchisee_id']);
-    $result=mysqli_query($conn,"SELECT * FROM franchisee_information WHERE Franchisee_id = Franchisee_id");
+    $result=mysqli_query($conn,"SELECT * FROM franchisee_information WHERE Franchisee_id = $Franchisee_id");
     $arr=mysqli_fetch_assoc($result);
 }
 ?>
@@ -28,42 +28,42 @@ if(!empty($_GET['Franchisee_id'])){
                     border-width: 0px;
                 }
             </style>
-            <table style="width:600px;background-color:white;color:black">
+            <table style="width:600px;background-color:white;color:black"> 
 
                 <tbody>
                 <tr>
                     <td colspan="2" style="text-align:left;color:black;font-family:Arial;font-size:14px;"><strong>Franchisee Information</strong></td>
                 </tr>
                 <tr>
-                    <td style="nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;">First
-                        Name<span style="color:red;">*</span></td>
-                    <td style="width:250px;"><input contenteditable="false" type="text" style="width:250px;" maxlength="40" name="ID " value="<?php echo $arr['Franchisee_id'];?>">
+                    <td style="nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;">ID<span style="color:red;">*</span></td>
+                    <td style="width:250px;"><input contenteditable="false" type="text" style="width:250px;" maxlength="40" name="Franchisee_id" value="<?php echo $arr['Franchisee_id'];?>">
                     </td>
                 </tr>
                 <tr>
                     <td style="nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;">First
                         Name<span style="color:red;">*</span></td>
-                    <td style="width:250px;"><input type="text" style="width:250px;" maxlength="40" name="First Name" value="<?php echo $arr['First_name'];?>">
+                    <td style="width:250px;"><input type="text" style="width:250px;" maxlength="40" name="First_name" value="<?php echo $arr['First_name'];?>">
                     </td>
                 </tr>
 
                 <tr>
                     <td style="nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;">Last
                         Name<span style="color:red;">*</span></td>
-                    <td style="width:250px;"><input type="text" style="width:250px;" maxlength="80" name="Last Name" value="<?php echo $arr['Last_name'];?>">
+                    <td style="width:250px;"><input type="text" style="width:250px;" maxlength="80" name="Last_name" value="<?php echo $arr['Last_name'];?>">
                     </td>
                 </tr>
 
                 <tr>
-                    <td style="nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;value="<?php echo $arr['Franchisee_email_address'];?>">Email<span
-                            style="color:red;">*</span></td>
-                    <td style="width:250px;"><input type="text" style="width:250px;" maxlength="100" name="Email"></td>
+                    <td style="nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;">Email<span style="color:red;">*</span></td>
+                    <td style="width:250px;"><input type="text" style="width:250px;" maxlength="80" name="Franchisee_email_address" value="<?php echo $arr['Franchisee_email_address'];?>">
+                    </td>
+                    
                 </tr>
 
                 <tr>
                     <td style="nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;">Mobile<span
                             style="color:red;">*</span></td></td>
-                    <td style="width:250px;"><input type="text" style="width:250px;" maxlength="30" name="Mobile" value="<?php echo $arr['Mobile'];?>></td>
+                    <td style="width:250px;"><input type="text" style="width:250px;" maxlength="30" name="Mobile" value="<?php echo $arr['Mobile'];?>"></td>
                 </tr>
 
                 <tr>

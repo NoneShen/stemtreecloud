@@ -5,6 +5,19 @@
     <title>Franchisee Information</title>
     <link rel="stylesheet" id="child-style-css" href="https://stemtree.com/wp-content/themes/StemTreeTheme/style.css?ver=1.0.5" type="text/css" media="all">
 </head>
+
+<script>
+    function del(id)
+    {
+        var r=confirm("Are You Sure?");
+        if(r==false)
+        {
+            return false;
+        }else{
+            window.location.href='Franchisee_delete_server.php?Franchisee_id='+id;
+        }
+    }
+</script>
 <body>
 <div id="main-content">
     <div id="crmWebToEntityForm" style="width:600px;margin:auto;">
@@ -22,12 +35,12 @@
 
                 <tbody>
                 <tr>
-                    <td colspan="2" style="text-align:left;color:black;font-family:Arial;font-size:14px;"><strong>Franchisee Information</strong></td>
+                    <td colspan="2" style="text-align:left;color:black;font-family:Arial;font-size:14px;"><strong>Franchisee Information</strong></td><td><input type="button" onclick="window.location.href='Franchisee_add.htm'" value="ADD" /></td>
                 </tr>
                 <?php
                 require_once 'functions.php';
-                connectDb();
-                $result=mysqli_query("SELECT * FROM franchisee_information");
+                $conn=connectDb();
+                $result=mysqli_query($conn,"SELECT * FROM franchisee_information");
                 $dataCount=mysqli_num_rows($result);
                 for($i=0;$i<$dataCount;$i++){
                     $result_arr=mysqli_fetch_assoc($result);
@@ -35,12 +48,12 @@
                     $First_name=$result_arr['First_name'];
                     $Last_name=$result_arr['Last_name'];
                     $Mobile=$result_arr['Mobile'];
-                    echo "<tr><td>Name: $First_name  $Last_name</td><td><a href='Franchisee_update.php?Franchisee_id=$Franchisee_id'>EDIT</a></td>
-                </tr>";
+                    echo "<tr><td>Name: $First_name  $Last_name</td><td><input name='' type='button' value='DELETE' onclick='del($Franchisee_id)'/>  <input type=\"button\" onclick=\"window.location.href='Franchisee_update.php?Franchisee_id=$Franchisee_id'\" value=\"UPDATE\" /> </td>   </tr>";
                 }
                 ?>
                 </tbody>
             </table>
+
         </form>
     </div>
 </div>

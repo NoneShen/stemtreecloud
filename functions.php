@@ -10,6 +10,6 @@ function connectDb(){
     if(!$conn){
         die('can not connect db');
     }
-    mysqli_select_db($conn,'');
+    mysqli_select_db($conn,'stemtree_test');
     return $conn;
 }
